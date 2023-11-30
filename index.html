@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boolean Cinema Quiz</title>
+    <link rel="stylesheet" href="./dist/style.css" />
+  </head>
+  <body>
+    <!-- header -->
+    <header>
+      <nav class="navbar">
+        <a role="button" class="navbar-logo">
+          <!-- here the camera-logo will go -->
+        </a>
+        <a role="tooltip" class="navbar-item info-path">info</a>
+      </nav>
+    </header>
+
+    <main>
+      <!--  -->
+      <!-- home -->
+      <section class="total-homepage">
+        <div class="container-heading-level">
+          <div class="heading">
+            <h1 class="heading-one">boolean cinema quiz</h1>
+            <h2 class="heading-two">
+              click one the <span class="buttons-below">buttons below</span> for
+              playing
+            </h2>
+          </div>
+          <div class="level">
+            <button class="level-basic">basic</button>
+            <button class="level-medium">medium</button>
+            <button class="level-advanced">advanced</button>
+          </div>
+        </div>
+      </section>
+      <!--  -->
+      <!-- double-check -->
+      <section class="total-double-check hidden">
+        <div class="container-double-check">
+          <div class="double-check">
+            <h2 class="double-check-heading">Ready?</h2>
+            <button class="double-check-button">start</button>
+          </div>
+        </div>
+      </section>
+      <!--  -->
+      <!-- quiz -->
+      <section class="total-quiz hidden">
+        <div class="container-quiz">
+          <div class="timer-assertions-tracking">
+            <div class="timer">
+              <div class="timer-item">
+                <p class="timer-item-seconds">20</p>
+              </div>
+            </div>
+            <div class="assertions-tracking">
+              <div class="assertions-numbers">
+                <p class="each-assertion">1</p>
+                <p class="slash">/</p>
+                <p class="total-assertions">10</p>
+              </div>
+            </div>
+          </div>
+          <div class="assertion-container">
+            <h3 class="assertion">
+              <!-- here the assertion will go -->
+            </h3>
+          </div>
+          <div class="answer">
+            <label class="answer-label" id="label-true" for="answer-true"
+              >True
+              <input
+                type="radio"
+                id="answer-true"
+                class="answer-label-true-input"
+                name="answer"
+                value="answer-true"
+              />
+              <span class="radio-circle"></span>
+            </label>
+            <label class="answer-label" id="label-false" for="answer-false"
+              >False
+              <input
+                type="radio"
+                id="answer-false"
+                class="answer-label-false-input"
+                name="answer"
+                value="answer-false"
+              />
+              <span class="radio-circle"></span>
+            </label>
+          </div>
+          <div class="button-container">
+            <button class="button-submit-js">submit</button>
+          </div>
+        </div>
+      </section>
+      <!--  -->
+      <!-- info (tooltip, about) -->
+      <section class="info">
+        <div class="tooltip-about">
+          <!-- tooltip -->
+          <div class="tooltip">
+            <h3 class="tooltip-title">Tooltip</h3>
+            <p class="tooltip-paragraph">
+              Since this is a boolean quiz, you will be able to submit only two
+              answers: true or false. Here some shortcuts which can make your
+              life much easier:<br />
+              <code>Ctrl + Alt + t</code> for answering true<br />
+              <code>Ctrl + Alt + f</code> for answering false<br />
+              <code>Ctrl + Alt + s</code> for submitting the answer.
+            </p>
+          </div>
+          <!-- about -->
+          <div class="about">
+            <h3 class="about-title">About</h3>
+            <p class="about-paragraph">
+              The quiz has a simple structure and a simple functionality too.
+              There are three levels - basic, medium and advanced - and each of
+              them stores ten assertions, which have to be proved only right or
+              wrong, that is to say only true or false. Hence the name of the
+              quiz contains boolean. The only topic is the world of cinema.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!--  -->
+    <!-- footer -->
+    <footer>
+      <p class="footer-paragraph">
+        <a href="https://github.com/14githubruno" target="_blank">GitHub</a>
+        Copyright
+      </p>
+      <a class="anchor-top">top</a>
+    </footer>
+
+    <!-- js -->
+    <script src="./js/index.js"></script>
+  </body>
+</html>

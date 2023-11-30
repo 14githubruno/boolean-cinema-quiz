@@ -1,0 +1,39 @@
+@use "../utilities" as u;
+
+footer {
+  position: relative;
+  height: u.rem(50);
+  background-color: u.$darkgrey-color;
+  @include u.flexbox(row, flex-start, center);
+
+  .footer-paragraph {
+    color: u.$golden-color;
+
+    a {
+      @extend .footer-paragraph;
+      margin-left: u.rem(50);
+    }
+  }
+
+  .anchor-top {
+    cursor: pointer;
+    color: u.$golden-color;
+    position: absolute;
+    right: u.rem(10);
+
+    &::after {
+      content: "";
+      background: url(../../icons/arrow-up.svg);
+      background-repeat: no-repeat;
+      display: inline-block;
+      height: u.rem(12);
+      width: u.rem(12);
+      position: relative;
+      left: u.rem(4);
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}

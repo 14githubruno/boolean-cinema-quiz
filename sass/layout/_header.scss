@@ -1,0 +1,36 @@
+@use "../utilities" as u;
+
+header {
+  background-color: u.$darkgrey-color;
+  height: u.rem(50);
+  @include u.flexbox(row, flex-end, center);
+  position: relative;
+
+  .navbar {
+    &-logo::after {
+      content: "";
+      background: url(../../icons/camera.svg);
+      background-repeat: no-repeat;
+      cursor: pointer;
+      height: u.rem(33);
+      width: u.rem(33);
+      position: absolute;
+      left: u.rem(17);
+      top: u.rem(7);
+    }
+
+    &-item {
+      cursor: pointer;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: u.rem(13);
+      font-weight: bold;
+      color: u.$golden-color;
+      margin-right: u.rem(14);
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}
