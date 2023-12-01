@@ -1,3 +1,10 @@
+// seconds-timer obj: 3 arrays for the 3 levels
+const seconds = {
+  basic: 30,
+  medium: 25,
+  advanced: 20,
+};
+
 // assertions obj: 3 arrays for the 3 levels
 const assertions = {
   basic: [
@@ -69,8 +76,23 @@ const navInfo = document.querySelector(".info-path");
 const anchorTop = document.querySelector(".anchor-top");
 
 //
+// function for allowing custom shortcuts when playing the quiz
+const shortcut = (ev) => {
+  ev.preventDefault();
+
+  if (ev.key === "t" && ev.ctrlKey && ev.altKey) {
+    inputs[0].click();
+  }
+  if (ev.key === "f" && ev.ctrlKey && ev.altKey) {
+    inputs[1].click();
+  }
+  if (ev.key === "s" && ev.ctrlKey && ev.altKey) {
+    submitButton.click();
+  }
+};
+
 //
-// functions for handling quiz, changing assertions, keeping track
+// functions for handling quiz (end it if needed), changing assertions, keeping track
 const confirmTheEndOfTheQuiz = () => {
   singleAssertion.textContent = "done";
   timer.classList.add("invisible");
@@ -101,64 +123,78 @@ const handleQuiz = (arr) => {
 };
 
 //
-//
-// function for allowing custom shortcuts when playing the quiz
-const shortcut = (ev) => {
-  ev.preventDefault();
+// function for counting down (timer)
+let secondsTimer = document.querySelector(".timer-item-seconds");
+const countDown = (levelSec) => {
+  setInterval(() => {
+    levelSec--;
+    secondsTimer.textContent = levelSec;
+  }, 1000);
 
-  if (ev.key === "t" && ev.ctrlKey && ev.altKey) {
-    inputs[0].click();
-  }
-  if (ev.key === "f" && ev.ctrlKey && ev.altKey) {
-    inputs[1].click();
-  }
-  if (ev.key === "s" && ev.ctrlKey && ev.altKey) {
-    submitButton.click();
-  }
+  let rightTime = levelSec * 1000;
+  setInterval(() => {
+    confirmTheEndOfTheQuiz();
+  }, rightTime);
 };
-// function for the start-button (once chosen the level)
-const startQuiz = () => {
+
+// function for handling the amount of seconds (timer)
+const handleTimer = (levelSec) => {
+  secondsTimer.textContent = levelSec;
+  countDown(levelSec);
+};
+
+// function for starting the right quiz with the right number of seconds
+const startQuiz = (levelSec) => {
   doubleCheck.classList.add("hidden");
   quizPage.classList.remove("hidden");
   document.addEventListener("keydown", shortcut);
+  handleTimer(levelSec);
 };
 buttonStartQuiz.addEventListener("click", startQuiz);
 
 //
-// function/behaviour of the THREE buttons for the THREE levels
+// functions/behaviours of the THREE buttons for the THREE levels
 const allowQuiz = () => {
   homePage.classList.add("hidden");
   doubleCheck.classList.remove("hidden");
 };
+
 const setSubmitButton = (level) => {
   submitButton.addEventListener("click", () => {
     handleQuiz(level);
   });
 };
+
 const prepareFirstAssertion = (assert) => {
   singleAssertion.textContent = assert[0];
   assert.shift();
 };
-
+//
+// basic-button
 basicQuizButton.addEventListener("click", () => {
   allowQuiz();
+  startQuiz(seconds.basic);
   setSubmitButton(assertions.basic);
   prepareFirstAssertion(assertions.basic);
 });
+//
+// medium-button
 mediumQuizButton.addEventListener("click", () => {
   allowQuiz();
+  startQuiz(seconds.medium);
   setSubmitButton(assertions.medium);
   prepareFirstAssertion(assertions.medium);
 });
+//
+// advanced-button
 advancedQuizButton.addEventListener("click", () => {
   allowQuiz();
+  startQuiz(seconds.advanced);
   setSubmitButton(assertions.advanced);
   prepareFirstAssertion(assertions.advanced);
 });
 
 //
-//
-
 //function/behaviour of the logo
 const doNotAllowQuiz = () => {
   window.location.reload();
