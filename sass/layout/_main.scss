@@ -77,33 +77,6 @@ main {
   }
 }
 
-// double-check
-.total-double-check {
-  .container-double-check {
-    color: u.$golden-color;
-    min-height: 100vh;
-    max-width: u.rem(500);
-    margin: 0 auto;
-    padding: u.rem(170) 0;
-    @include u.flexbox(column, center, center);
-
-    .double-check {
-      padding: u.rem(10) 0 u.rem(50) 0;
-      text-align: center;
-
-      &-heading {
-        font-size: u.rem(20);
-      }
-
-      &-button {
-        cursor: pointer;
-        font-size: u.rem(13);
-        margin-top: u.rem(60);
-      }
-    }
-  }
-}
-
 // quiz
 .total-quiz {
   .container-quiz {

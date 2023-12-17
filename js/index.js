@@ -46,16 +46,13 @@ const assertions = {
 };
 
 //
-// 3 sections interchangeable through clicks
+// 2 sections interchangeable through clicks
 // 1 homepage
 const homePage = document.querySelector(".total-homepage");
 const basicQuizButton = document.querySelector(".level-basic");
 const mediumQuizButton = document.querySelector(".level-medium");
 const advancedQuizButton = document.querySelector(".level-advanced");
-// 2 double-check
-const doubleCheck = document.querySelector(".total-double-check");
-const buttonStartQuiz = document.querySelector(".double-check-button");
-// 3 quiz
+// 2 quiz
 const quizPage = document.querySelector(".total-quiz");
 const timer = document.querySelector(".timer");
 const tracking = document.querySelector(".assertions-tracking");
@@ -145,20 +142,14 @@ const handleTimer = (levelSec) => {
 
 // function for starting the right quiz with the right number of seconds
 const startQuiz = (levelSec) => {
-  doubleCheck.classList.add("hidden");
+  homePage.classList.add("hidden");
   quizPage.classList.remove("hidden");
   document.addEventListener("keydown", shortcut);
   handleTimer(levelSec);
 };
-buttonStartQuiz.addEventListener("click", startQuiz);
 
 //
 // functions/behaviours of the THREE buttons for the THREE levels
-const allowQuiz = () => {
-  homePage.classList.add("hidden");
-  doubleCheck.classList.remove("hidden");
-};
-
 const setSubmitButton = (level) => {
   submitButton.addEventListener("click", () => {
     handleQuiz(level);
@@ -172,7 +163,6 @@ const prepareFirstAssertion = (assert) => {
 //
 // basic-button
 basicQuizButton.addEventListener("click", () => {
-  allowQuiz();
   startQuiz(seconds.basic);
   setSubmitButton(assertions.basic);
   prepareFirstAssertion(assertions.basic);
@@ -180,7 +170,6 @@ basicQuizButton.addEventListener("click", () => {
 //
 // medium-button
 mediumQuizButton.addEventListener("click", () => {
-  allowQuiz();
   startQuiz(seconds.medium);
   setSubmitButton(assertions.medium);
   prepareFirstAssertion(assertions.medium);
@@ -188,7 +177,6 @@ mediumQuizButton.addEventListener("click", () => {
 //
 // advanced-button
 advancedQuizButton.addEventListener("click", () => {
-  allowQuiz();
   startQuiz(seconds.advanced);
   setSubmitButton(assertions.advanced);
   prepareFirstAssertion(assertions.advanced);
@@ -199,7 +187,6 @@ advancedQuizButton.addEventListener("click", () => {
 const doNotAllowQuiz = () => {
   window.location.reload();
   homePage.classList.remove("hidden");
-  doubleCheck.classList.add("hidden");
   quizPage.classList.add("hidden");
   document.removeEventListener("keydown", shortcut);
 };
