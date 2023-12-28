@@ -73,7 +73,7 @@ main {
   margin-top: -3.125rem;
 }
 
-.total-homepage .container-heading-level {
+.total-homepage .container-result-heading-level {
   min-height: 100vh;
   max-width: 31.25rem;
   margin: 0 auto;
@@ -83,26 +83,33 @@ main {
   justify-content: center;
   align-items: center;
 }
-.total-homepage .container-heading-level .heading {
+.total-homepage .container-result-heading-level .result {
+  text-align: center;
+  color: #c0a187;
+}
+.total-homepage .container-result-heading-level .result-user {
+  font-size: 1.25rem;
+}
+.total-homepage .container-result-heading-level .heading {
   text-align: center;
   color: #c0a187;
   line-height: 1.5;
 }
-.total-homepage .container-heading-level .heading-one {
+.total-homepage .container-result-heading-level .heading-one {
   font-size: 1.5rem;
   text-transform: uppercase;
 }
-.total-homepage .container-heading-level .heading-two {
+.total-homepage .container-result-heading-level .heading-two {
   font-size: 1.125rem;
   margin-top: 0.875rem;
 }
-.total-homepage .container-heading-level .heading-two .buttons-below {
+.total-homepage .container-result-heading-level .heading-two .buttons-below {
   position: relative;
   top: 0.25rem;
   font-size: 1.25rem;
   color: #dbc393;
 }
-.total-homepage .container-heading-level .level {
+.total-homepage .container-result-heading-level .level {
   margin-top: 1.875rem;
   display: flex;
   flex-direction: column;
@@ -110,14 +117,14 @@ main {
   align-items: center;
 }
 @media (min-width: 25.625em) {
-  .total-homepage .container-heading-level .level {
+  .total-homepage .container-result-heading-level .level {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
   }
 }
-.total-homepage .container-heading-level .level-basic, .total-homepage .container-heading-level .level-medium, .total-homepage .container-heading-level .level-advanced {
+.total-homepage .container-result-heading-level .level-basic, .total-homepage .container-result-heading-level .level-medium, .total-homepage .container-result-heading-level .level-advanced {
   cursor: pointer;
   margin: 1.25rem;
   border: 0.0625rem solid #c0a187;
@@ -129,41 +136,17 @@ main {
   font-family: Verdana, Tahoma, sans-serif;
   text-transform: uppercase;
 }
-.total-homepage .container-heading-level .level-basic:hover, .total-homepage .container-heading-level .level-medium:hover, .total-homepage .container-heading-level .level-advanced:hover {
+.total-homepage .container-result-heading-level .level-basic:hover, .total-homepage .container-result-heading-level .level-medium:hover, .total-homepage .container-result-heading-level .level-advanced:hover {
   transform: scale(1.02);
 }
-.total-homepage .container-heading-level .level-basic {
+.total-homepage .container-result-heading-level .level-basic {
   background-color: #d5ce97;
 }
-.total-homepage .container-heading-level .level-medium {
+.total-homepage .container-result-heading-level .level-medium {
   background-color: #f5ea83;
 }
-.total-homepage .container-heading-level .level-advanced {
+.total-homepage .container-result-heading-level .level-advanced {
   background-color: #f6dd50;
-}
-
-.total-double-check .container-double-check {
-  color: #c0a187;
-  min-height: 100vh;
-  max-width: 31.25rem;
-  margin: 0 auto;
-  padding: 10.625rem 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.total-double-check .container-double-check .double-check {
-  padding: 0.625rem 0 3.125rem 0;
-  text-align: center;
-}
-.total-double-check .container-double-check .double-check-heading {
-  font-size: 1.25rem;
-}
-.total-double-check .container-double-check .double-check-button {
-  cursor: pointer;
-  font-size: 0.8125rem;
-  margin-top: 3.75rem;
 }
 
 .total-quiz .container-quiz {
