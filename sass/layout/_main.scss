@@ -8,12 +8,21 @@ main {
 
 // home
 .total-homepage {
-  .container-heading-level {
+  .container-result-heading-level {
     min-height: 100vh;
     max-width: u.rem(500);
     margin: 0 auto;
     padding: u.rem(170) 0;
     @include u.flexbox(column, center, center);
+
+    .result {
+      text-align: center;
+      color: u.$golden-color;
+
+      &-user {
+        font-size: u.rem(20);
+      }
+    }
 
     .heading {
       text-align: center;
