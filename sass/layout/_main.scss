@@ -6,7 +6,7 @@ main {
   margin-top: u.rem(-50);
 }
 
-// home
+// home (result, headings, levels)
 .total-homepage {
   .container-result-heading-level {
     min-height: 100vh;
@@ -20,7 +20,7 @@ main {
       color: u.$golden-color;
 
       &-user {
-        font-size: u.rem(20);
+        font-size: u.rem(21);
       }
     }
 
@@ -30,7 +30,7 @@ main {
       line-height: 1.5;
 
       &-one {
-        font-size: u.rem(24);
+        font-size: u.rem(20);
         text-transform: uppercase;
       }
 
@@ -38,11 +38,17 @@ main {
         font-size: u.rem(18);
         margin-top: u.rem(14);
 
-        .buttons-below {
-          position: relative;
-          top: u.rem(4);
-          font-size: u.rem(20);
-          color: u.$buttonsbelow-color;
+        &-level-word {
+          color: u.$levelword-color;
+          -webkit-text-fill-color: transparent;
+          background: linear-gradient(
+              to right,
+              u.$lightgold-color,
+              u.$mediumgold-color,
+              u.$darkergold-color
+            )
+            text;
+          font-size: u.rem(18);
         }
       }
     }
@@ -51,7 +57,7 @@ main {
       @include u.mediaquery(u.em(410)) {
         @include u.flexbox(row, center, center);
       }
-      margin-top: u.rem(30);
+      margin-top: u.rem(20);
       @include u.flexbox(column, center, center);
 
       &-basic,
@@ -61,8 +67,8 @@ main {
         margin: u.rem(20);
         border: u.rem(1) solid u.$golden-color;
         border-radius: u.rem(5);
-        width: u.rem(88);
-        height: u.rem(33);
+        width: u.rem(82);
+        height: u.rem(30);
         font-size: u.rem(10);
         font-weight: bold;
         font-family: u.$font;
@@ -192,31 +198,61 @@ main {
 }
 
 // info(tooltip, about)
-
 .info {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  line-height: 1.8;
-  color: u.$golden-color;
-  min-height: 100vh;
-  @include u.flexbox(row, center, center);
+  height: 100%;
+  z-index: 1;
+  background-color: rgba(45, 45, 39, 0.4);
 
-  .tooltip-about {
-    @include u.mediaquery(u.em(800)) {
-      @include u.flexbox(row, center, normal);
-      padding: 0;
+  .tooltip-about-container {
+    background-color: u.$dark-color;
+    color: u.$golden-color;
+    border: u.rem(1) solid u.$golden-color;
+    border-top-right-radius: u.rem(5);
+    border-bottom-right-radius: u.rem(5);
+    max-width: u.rem(250);
+    height: u.rem(600);
+    padding: 0 u.rem(20);
+    line-height: 1.7;
+    overflow: auto;
+    position: absolute;
+    top: u.rem(50);
+    left: 0;
+    border-left: none;
+    @include u.keyframesModal(showModal) {
+      0% {
+        left: -50%;
+      }
     }
-    padding-bottom: u.rem(100);
-    width: 96%;
-    @include u.flexbox(column, center, center);
+    @include u.animationModal(showModal, 0.4s);
+    @include u.mediaquery(u.em(700)) {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      @include u.keyframesModal(showModal) {
+        0% {
+          top: -50%;
+        }
+      }
+      border-left: u.rem(1) solid u.$golden-color;
+      border-radius: u.rem(5);
+      max-width: u.rem(700);
+      height: u.rem(400);
+    }
 
-    .tooltip {
-      flex-basis: 50%;
-      padding: u.rem(15);
-      background-color: u.$dark-color;
-      border: u.rem(1) solid u.$golden-color;
-      border-radius: u.rem(7);
-      max-width: u.rem(480);
-      margin: u.rem(20);
+    .close-btn {
+      font-size: u.rem(25);
+      position: absolute;
+      left: u.rem(10);
+      cursor: pointer;
+    }
+
+    .about {
+      padding: u.rem(10);
+      margin-top: u.rem(35);
 
       &-title {
         text-align: center;
@@ -226,7 +262,22 @@ main {
       }
 
       &-paragraph {
-        padding-left: u.rem(8);
+        font-size: u.rem(17);
+      }
+    }
+
+    .tooltip {
+      padding: u.rem(10);
+      margin: u.rem(35) 0;
+
+      &-title {
+        text-align: center;
+        text-transform: uppercase;
+        font-size: u.rem(20);
+        margin-bottom: u.rem(10);
+      }
+
+      &-paragraph {
         font-size: u.rem(17);
 
         code {
@@ -241,27 +292,6 @@ main {
             background: transparent;
           }
         }
-      }
-    }
-    .about {
-      flex-basis: 50%;
-      padding: u.rem(15);
-      background-color: u.$dark-color;
-      border: u.rem(1) solid u.$golden-color;
-      border-radius: u.rem(7);
-      max-width: u.rem(480);
-      margin: u.rem(20);
-
-      &-title {
-        text-align: center;
-        text-transform: uppercase;
-        font-size: u.rem(20);
-        padding: u.rem(10) 0;
-      }
-
-      &-paragraph {
-        padding-left: u.rem(8);
-        font-size: u.rem(17);
       }
     }
   }
