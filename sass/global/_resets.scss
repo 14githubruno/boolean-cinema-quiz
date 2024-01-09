@@ -23,3 +23,14 @@ body {
   background-color: u.$golden-color;
   color: u.$dark-color;
 }
+
+::-webkit-scrollbar {
+  width: u.rem(12);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: u.$golden-color;
+  border: u.rem(1) solid u.$dark-color;
+  box-shadow: inset 0 0 u.rem(6) u.$dark-color;
+  border-radius: u.rem(5);
+}
