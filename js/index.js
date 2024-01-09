@@ -135,7 +135,9 @@ const advanced = [
   },
 ];
 
-// 2 sections interchangeable
+// navbar items
+const logo = document.querySelector(".navbar-logo");
+const navInfo = document.querySelector(".info-path");
 // 1 homepage
 const homePage = document.querySelector(".total-homepage");
 const headings = document.querySelector(".heading");
@@ -152,16 +154,12 @@ const eachTrack = document.querySelector(".each-assertion");
 const singleAssertion = document.querySelector(".assertion");
 const inputs = document.querySelectorAll("input");
 const submitButton = document.querySelector(".button-submit-js");
-//
-// section-info (block)
-const sectionInfo = document.querySelector(".info");
-//
-// header items
-const logo = document.querySelector(".navbar-logo");
-const navInfo = document.querySelector(".info-path");
-//
-// footer item
-const anchorTop = document.querySelector(".anchor-top");
+// 3 info
+const infoModal = document.querySelector(".info");
+const tooltipAboutContainer = document.querySelector(
+  ".tooltip-about-container"
+);
+const closeButton = document.querySelector(".close-btn");
 
 //
 // function for allowing custom keyboard shortcuts
@@ -206,6 +204,7 @@ const confirmTheEndOfTheQuiz = () => {
 let finalResult = [];
 let assertionsValues = [];
 let userValues = [];
+//
 const restoreArrays = () => {
   assertionsValues = [];
   userValues = [];
@@ -320,14 +319,19 @@ const doNotAllowQuiz = () => {
 };
 logo.addEventListener("click", doNotAllowQuiz);
 
-// function for anchor-top
-const backToTop = () => {
-  document.body.scrollIntoView();
+// function for info (modal)
+const showInfoModal = (e) => {
+  e.stopPropagation();
+  infoModal.classList.remove("hidden");
+  window.addEventListener("click", hideInfoModal);
 };
-anchorTop.addEventListener("click", backToTop);
+navInfo.addEventListener("click", showInfoModal);
 
-// function for info
-const goToInfo = () => {
-  sectionInfo.scrollIntoView();
+const hideInfoModal = (e) => {
+  let areaOfModal = tooltipAboutContainer.contains(e.target);
+  let areaCloseButton = closeButton.contains(e.target);
+  if (!areaOfModal || areaCloseButton) {
+    infoModal.classList.add("hidden");
+    window.removeEventListener("click", hideInfoModal);
+  }
 };
-navInfo.addEventListener("click", goToInfo);
