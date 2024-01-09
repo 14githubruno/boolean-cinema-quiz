@@ -10,3 +10,15 @@
     @content;
   }
 }
+
+// modal (info)
+@mixin keyframesModal($name) {
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+@mixin animationModal($name, $duration) {
+  animation-name: $name;
+  animation-duration: $duration;
+}
