@@ -20,7 +20,7 @@ main {
       color: u.$golden-color;
 
       &-user {
-        font-size: u.rem(21);
+        font-size: u.rem(23);
       }
     }
 
@@ -30,16 +30,15 @@ main {
       line-height: 1.5;
 
       &-one {
-        font-size: u.rem(20);
+        font-size: u.rem(26);
         text-transform: uppercase;
       }
 
       &-two {
-        font-size: u.rem(18);
+        font-size: u.rem(23);
         margin-top: u.rem(14);
 
         &-level-word {
-          color: u.$levelword-color;
           -webkit-text-fill-color: transparent;
           background: linear-gradient(
               to right,
@@ -48,17 +47,17 @@ main {
               u.$darkergold-color
             )
             text;
-          font-size: u.rem(18);
+          font-size: u.rem(23);
         }
       }
     }
 
     .level {
+      margin-top: u.rem(14);
+      @include u.flexbox(column, center, center);
       @include u.mediaquery(u.em(410)) {
         @include u.flexbox(row, center, center);
       }
-      margin-top: u.rem(20);
-      @include u.flexbox(column, center, center);
 
       &-basic,
       &-medium,
@@ -69,24 +68,35 @@ main {
         border-radius: u.rem(5);
         width: u.rem(82);
         height: u.rem(30);
-        font-size: u.rem(10);
+        font-size: u.rem(13);
         font-weight: bold;
         font-family: u.$font;
         text-transform: uppercase;
-
-        &:hover {
-          transform: scale(1.02);
-        }
       }
 
       &-basic {
         background-color: u.$lightgold-color;
+
+        &:hover,
+        &:active {
+          box-shadow: 0 0 u.rem(1.5) u.$lightgold-color;
+        }
       }
       &-medium {
         background-color: u.$mediumgold-color;
+
+        &:hover,
+        &:active {
+          box-shadow: 0 0 u.rem(1.5) u.$mediumgold-color;
+        }
       }
       &-advanced {
         background-color: u.$darkergold-color;
+
+        &:hover,
+        &:active {
+          box-shadow: 0 0 u.rem(1.5) u.$darkergold-color;
+        }
       }
     }
   }
@@ -117,7 +127,7 @@ main {
 
           &-seconds {
             color: u.$dark-color;
-            font-size: u.rem(22);
+            font-size: u.rem(24);
           }
         }
       }
@@ -125,7 +135,7 @@ main {
       .assertions-tracking {
         .assertions-numbers {
           @include u.flexbox(row, flex-end, center);
-          font-size: u.rem(22);
+          font-size: u.rem(24);
 
           .each-assertion {
             margin-left: u.rem(2);
@@ -145,7 +155,7 @@ main {
       width: 100%;
 
       .assertion {
-        font-size: u.rem(20);
+        font-size: u.rem(24);
         font-weight: normal;
         text-align: center;
         height: u.rem(80);
@@ -154,26 +164,17 @@ main {
     }
 
     .answer {
-      margin-bottom: u.rem(30);
+      margin-bottom: u.rem(40);
       @include u.flexbox(row, center, normal);
       width: 100%;
 
       &-label {
         cursor: pointer;
-        font-size: u.rem(18);
-        margin: 0 u.rem(10);
-        padding-left: u.rem(22);
+        font-size: u.rem(22);
+        margin: 0 u.rem(20);
+        padding-left: u.rem(25);
         position: relative;
-
-        &-true-input,
-        &-false-input {
-          width: 0;
-          position: absolute;
-          top: 0;
-          bottom: 0;
-          left: 0;
-          right: u.rem(10);
-        }
+        // original radio buttons are hidden with class 'hidden'
       }
     }
 
@@ -184,10 +185,13 @@ main {
 
       .button-submit-js {
         cursor: pointer;
-        padding: u.rem(4);
+        padding: u.rem(2) u.rem(5) u.rem(3) u.rem(5);
         border-radius: u.rem(4);
-        border: none;
-        font-size: u.rem(15);
+        border: u.rem(1) solid u.$golden-color;
+        color: u.$golden-color;
+        font-family: u.$font;
+        font-size: u.rem(19);
+        background: transparent;
 
         &:hover {
           opacity: 0.9;
@@ -205,7 +209,7 @@ main {
   width: 100%;
   height: 100%;
   z-index: 1;
-  background-color: rgba(45, 45, 39, 0.4);
+  // background-color: rgba(45, 45, 39, 0.4);
 
   .tooltip-about-container {
     background-color: u.$dark-color;
@@ -239,46 +243,52 @@ main {
       }
       border-left: u.rem(1) solid u.$golden-color;
       border-radius: u.rem(5);
-      max-width: u.rem(700);
+      max-width: u.rem(600);
       height: u.rem(400);
     }
 
     .close-btn {
-      font-size: u.rem(25);
+      font-size: u.rem(35);
       position: absolute;
       left: u.rem(10);
+      top: u.rem(-5);
       cursor: pointer;
+
+      &:hover {
+        transform: scale(1.03);
+        color: u.$white-color;
+      }
     }
 
     .about {
       padding: u.rem(10);
-      margin-top: u.rem(35);
+      margin-top: u.rem(20);
 
       &-title {
         text-align: center;
         text-transform: uppercase;
-        font-size: u.rem(20);
+        font-size: u.rem(25);
         padding: u.rem(10) 0;
       }
 
       &-paragraph {
-        font-size: u.rem(17);
+        font-size: u.rem(21);
       }
     }
 
     .tooltip {
       padding: u.rem(10);
-      margin: u.rem(35) 0;
+      margin: u.rem(20) 0;
 
       &-title {
         text-align: center;
         text-transform: uppercase;
-        font-size: u.rem(20);
+        font-size: u.rem(25);
         margin-bottom: u.rem(10);
       }
 
       &-paragraph {
-        font-size: u.rem(17);
+        font-size: u.rem(21);
 
         code {
           text-align: left;
@@ -306,7 +316,7 @@ main {
   border-radius: 50%;
   background-color: u.$white-color;
   position: absolute;
-  top: u.rem(1);
+  top: u.rem(4);
   left: u.rem(-1);
 }
 
