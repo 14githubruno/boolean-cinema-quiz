@@ -8,32 +8,11 @@ footer {
 
   .footer-paragraph {
     color: u.$golden-color;
+    font-size: u.rem(17);
 
     a {
       @extend .footer-paragraph;
       margin-left: u.rem(50);
-    }
-  }
-
-  .anchor-top {
-    cursor: pointer;
-    color: u.$golden-color;
-    position: absolute;
-    right: u.rem(10);
-
-    &::after {
-      content: "";
-      background: url(../../icons/arrow-up.svg);
-      background-repeat: no-repeat;
-      display: inline-block;
-      height: u.rem(12);
-      width: u.rem(12);
-      position: relative;
-      left: u.rem(4);
-    }
-
-    &:hover {
-      opacity: 0.8;
     }
   }
 }
