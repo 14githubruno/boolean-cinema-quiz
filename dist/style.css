@@ -58,8 +58,7 @@ header {
 }
 header .navbar-logo::after {
   content: "";
-  background: url(../../icons/camera.svg);
-  background-repeat: no-repeat;
+  background: url(../../icons/camera.svg) no-repeat;
   cursor: pointer;
   height: 2.0625rem;
   width: 2.0625rem;
