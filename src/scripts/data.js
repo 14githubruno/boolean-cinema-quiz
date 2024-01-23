@@ -134,5 +134,3 @@ const assertionsObject = {
     },
   ],
 };
-
-export { secondsObject, assertionsObject };

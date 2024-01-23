@@ -9,7 +9,7 @@ header {
   .navbar {
     &-logo::after {
       content: "";
-      background: url(../../icons/camera.svg) no-repeat;
+      background: url(../../src/styles/icons/camera.svg) no-repeat;
       cursor: pointer;
       height: u.rem(33);
       width: u.rem(33);

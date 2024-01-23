@@ -1,0 +1,24 @@
+{
+  "name": "boolean-cinema-quiz",
+  "version": "1.0.0",
+  "description": "Along with the desire to improve overall, the main incentive to work on this very small project (a work in progress indeed) was to practice with Sass (SCSS syntax). Besides, the topic of the quiz is mainly due to my interest in cinema.",
+  "main": "gulpfile.js",
+  "type": "module",
+  "scripts": {
+    "start": "npm install && gulp"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "autoprefixer": "^10.4.17",
+    "cssnano": "^6.0.3",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-postcss": "^9.1.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-terser": "^2.1.0",
+    "sass": "^1.70.0"
+  }
+}

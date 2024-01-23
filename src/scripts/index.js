@@ -1,5 +1,3 @@
-// import data
-import { secondsObject, assertionsObject } from "./data.js";
 // navbar items
 const logo = document.querySelector(".navbar-logo");
 const navInfo = document.querySelector(".info-path");
